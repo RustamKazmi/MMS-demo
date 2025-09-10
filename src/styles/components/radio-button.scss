@@ -1,0 +1,42 @@
+/*<------------------- Toggle Scss -------------------->*/
+@use '../../styles/abstracts/variables' as *;
+
+.mat-mdc-radio-group {
+  .mat-mdc-radio-button {
+    .mdc-form-field {
+      .mdc-radio {
+        padding: 0;
+        .mat-mdc-radio-touch-target {
+          width: 20px;
+          height: 20px;
+        }
+        .mdc-radio__native-control {
+          width: 20px;
+          height: 20px;
+          &:not(:checked) + .mdc-radio__background > .mdc-radio__outer-circle {
+            border-color: $gray-textdisable-color;
+          }
+          &:enabled:checked
+            + .mdc-radio__background
+            > .mdc-radio__outer-circle {
+            border-color: $primary-color;
+          }
+          &:enabled:checked
+            + .mdc-radio__background
+            > .mdc-radio__inner-circle {
+            border-color: $primary-color;
+          }
+        }
+      }
+      .mdc-label {
+        font-family: $font-secondary;
+        font-weight: $font-regular;
+        font-size: 14px;
+        line-height: 140%;
+        letter-spacing: 0;
+        color: $blackish-color;
+        padding-left: 8px;
+      }
+    }
+  }
+}

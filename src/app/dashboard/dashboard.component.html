@@ -1,0 +1,124 @@
+<!-- dashboard.component.html -->
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">MyApp</a>
+      <div class="d-flex ms-auto align-items-center">
+        <span class="text-white me-3">Welcome, {{ email }}</span>
+        <button class="btn btn-outline-light btn-sm" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </nav> -->
+  
+  <app-navbar></app-navbar>
+  <div class="container-fluid">
+    <h2 class="dashboard-title">Dashboard</h2>
+    
+    <!-- Stats Cards Row -->
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4 mb-4">
+        <!-- Total Members Card -->
+        <div class="col">
+            <div class="dashboard-card">
+                <div class="card-title">Total Members</div>
+                <div class="card-number">7190</div>
+                <button class="btn btn-view">View Details</button>
+            </div>
+        </div>
+        
+        <!-- New Members Card -->
+        <div class="col">
+            <div class="dashboard-card">
+                <div class="card-title">New Members This Month</div>
+                <div class="card-number">182</div>
+                <button class="btn btn-view">View Details</button>
+            </div>
+        </div>
+        
+        <!-- Total Donations Card -->
+        <div class="col">
+            <div class="dashboard-card">
+                <div class="card-title">Total Donations</div>
+                <div class="card-number">$100,500.00</div>
+                <button class="btn btn-view">View Details</button>
+            </div>
+        </div>
+        
+        <!-- Recent Donations Card -->
+        <div class="col">
+            <div class="dashboard-card">
+                <div class="card-title">Recent Donations</div>
+                <div class="card-number">$1000</div>
+                <button class="btn btn-view">View Details</button>
+            </div>
+        </div>
+        
+        <!-- Recurring Donations Card -->
+        <div class="col">
+            <div class="dashboard-card">
+                <div class="card-title">Recurring Donations</div>
+                <div class="card-number">$2500</div>
+                <button class="btn btn-view">View Details</button>
+            </div>
+        </div>
+    </div>
+    
+ <!-- Charts Row -->
+<div class="row g-4">
+  <!-- Monthly Donations Chart -->
+  <div class="col-lg-6">
+      <div class="dashboard-card">
+          <h5>Monthly Donations and Transactions</h5>
+          <div class="chart-container">
+              <canvas baseChart
+                  [type]="'bar'"
+                  [data]="monthlyDonationsChartData"
+                  [options]="monthlyDonationsChartOptions">
+              </canvas>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Membership Activity Chart -->
+  <div class="col-lg-6">
+      <div class="dashboard-card">
+          <h5>Recent Membership Activity</h5>
+          <div class="chart-container">
+              <canvas baseChart
+                  [type]="'line'"
+                  [data]="membershipActivityChartData"
+                  [options]="membershipActivityChartOptions">
+              </canvas>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Donation Categories Chart -->
+  <div class="col-lg-12">
+      <div class="dashboard-card">
+          <h5>Donations by Categories</h5>
+          <div class="row">
+              <div class="col-md-8">
+                  <div class="chart-container">
+                      <canvas baseChart
+                          [type]="'pie'"
+                          [data]="donationCategoriesChartData"
+                          [options]="donationCategoriesChartOptions">
+                      </canvas>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <!-- Table remains the same -->
+                  <div class="table-responsive">
+                      <table class="table table-sm">
+                          <!-- Table content remains unchanged -->
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+    
+    <!-- Footer -->
+ 
+  <app-footer></app-footer>
+

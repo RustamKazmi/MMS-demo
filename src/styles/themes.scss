@@ -1,0 +1,28 @@
+// @use '@angular/material' as mat;
+
+// // 1. Define a color palette
+// $primary-palette: mat.define-palette(mat.$indigo-palette);
+// $accent-palette: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+// $warn-palette: mat.define-palette(mat.$red-palette);
+
+
+// $custom-typography: mat.define-typography-config(
+//   $font-family: 'Roboto, sans-serif',
+//   $headline-1: mat.define-typography-level(96px, 96px, 300),
+//   $headline-2: mat.define-typography-level(60px, 60px, 300),
+//   $body-1: mat.define-typography-level(16px, 24px, 400)
+// );
+
+// // 3. Create the theme
+// $custom-theme: mat.define-light-theme((
+//   color: (
+//     primary: $primary-palette,
+//     accent: $accent-palette,
+//     warn: $warn-palette,
+//   ),
+//   typography: $custom-typography
+// ));
+
+// // 4. Include the theme styles
+// @include mat.core();
+// @include mat.all-component-themes($custom-theme);

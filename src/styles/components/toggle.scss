@@ -1,0 +1,237 @@
+/*<------------------- Toggle Scss -------------------->*/
+@use '../../styles/abstracts/variables' as *;
+
+// Toggle Switch Styles
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 22px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .slider {
+      background-color: $primary-color;
+      border-color: $primary-color;
+
+      &::before {
+        transform: translateX(18px);
+        border-color: $primary-color;
+      }
+    }
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $beige-dark-color;
+    border: 1px solid $beige-dark-color;
+    transition: 0.4s;
+    border-radius: 16px;
+
+    &::before {
+      position: absolute;
+      content: '';
+      height: 18px;
+      width: 18px;
+      left: 2px;
+      bottom: 1px;
+      background-color: $white-color;
+      border: 1px solid $white-color;
+      transition: 0.4s;
+      border-radius: 50%;
+      box-shadow: 0px 2px 4px 0px $toggle-box-shadow-color;
+    }
+  }
+}
+
+// Label next to the switch
+.active-label {
+  color: $blackish-color;
+}
+
+// x---------------------- Material UI Toggle Button ------------------------x
+
+.mat-mdc-slide-toggle {
+  padding: 0;
+  margin: 0;
+
+  .mdc-form-field {
+    .mdc-switch {
+      width: 42px;
+      height: 22px;
+      padding: 0;
+      background: transparent;
+
+      .mdc-switch__track {
+        width: 100%;
+        height: 100%;
+        background-color: $beige-dark-color;
+        border-radius: 16px;
+        border: 1px solid $white-color;
+        transition: background-color 0.3s ease;
+
+        &::before,
+        &::after {
+          background: unset;
+        }
+      }
+
+      .mdc-switch__handle-track {
+        .mdc-switch__handle {
+          width: 16px;
+          height: 16px;
+          margin: 2px;
+          background-color: $white-color;
+          border: 1px solid $white-color;
+          border-radius: 50%;
+          border: none;
+          transform: translateX(1px);
+          transition: transform 0.3s ease;
+          top: 1px;
+          box-shadow: 0px 2px 4px 0px rgba(0, 35, 11, 0.2);
+        }
+      }
+
+      // ✅ ON STATE
+      &.mdc-switch--checked {
+        .mdc-switch__track {
+          background-color: $primary-color; // On state dark green
+        }
+
+        .mdc-switch__handle {
+          transform: translateX(20px); // Slide right
+        }
+      }
+
+      // ✅ OFF STATE
+      &.mdc-switch--unselected {
+        .mdc-switch__track {
+          background-color: $beige-dark-color; // On state dark green
+          border: 1px solid $beige-dark-color;
+
+          &::before {
+            border: none;
+          }
+        }
+
+        .mdc-switch__handle-track {
+          .mdc-switch__handle {
+            &::before {
+              border: 1px solid $white-color;
+              background: $white-color;
+            }
+
+            &::after {
+              border: 1px solid $white-color;
+              background: $white-color;
+            }
+          }
+        }
+
+        &:enabled:hover:not(:focus):not(:active) {
+          .mdc-switch__handle {
+            &::after {
+              border: 1px solid $white-color;
+              background: $white-color;
+            }
+          }
+        }
+        &:active:not(.mdc-switch--disabled) {
+          .mdc-switch__handle {
+            margin: 2px;
+          }
+        }
+      }
+
+      .mdc-switch__icons {
+        display: none;
+      }
+
+      &:enabled:hover:not(:focus):not(:active) {
+        .mdc-switch__track {
+          &::after {
+            background: unset;
+          }
+
+          &::before {
+            background-color: $beige-dark-color;
+          }
+        }
+      }
+
+      &:enabled:enabled:focus:not(:active) {
+        .mdc-switch__track {
+          &::after {
+            background-color: $primary-color;
+          }
+
+          &::before {
+            background-color: $beige-dark-color;
+          }
+        }
+      }
+
+      &:enabled:active {
+        .mdc-switch__track {
+          &::after {
+            background: unset;
+          }
+        }
+      }
+      &.mdc-switch--selected {
+        &:enabled:hover:not(:focus):not(:active) {
+          .mdc-switch__handle {
+            &::after {
+              background: unset;
+            }
+            &::before {
+              background: unset;
+            }
+          }
+        }
+        &:active:not(.mdc-switch--disabled) {
+          .mdc-switch__handle {
+            margin: 2px;
+          }
+        }
+        &:enabled:active {
+          .mdc-switch__handle {
+            &::after {
+              background: unset;
+            }
+          }
+        }
+        &:enabled:focus:not(:active) {
+          .mdc-switch__handle {
+            &::after {
+              background: unset;
+            }
+          }
+        }
+      }
+      &:active:not(.mdc-switch--disabled) {
+        .mdc-switch__handle {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+    .mdc-label {
+      font-family: $font-secondary;
+      font-weight: $font-regular;
+      font-size: 14px;
+      line-height: 140%;
+      letter-spacing: 0;
+      color: $dark-black-color;
+      padding-left: 8px;
+    }
+  }
+}

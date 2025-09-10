@@ -1,0 +1,661 @@
+/*<------------------- Inputs Scss -------------------->*/
+@use '../../styles/abstracts/variables' as *;
+
+.form-label {
+  font-family: $font-secondary;
+  font-weight: $font-regular;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0;
+  color: $dark-black-color;
+  margin-bottom: 6px;
+
+  .mandatory-symbol {
+    color: $red-color;
+  }
+  .secondary-label {
+    color: $dark-gray-color;
+  }
+}
+
+.text-danger {
+  margin-top: 6px;
+
+  .invalid-msg {
+    color: $red-color;
+  }
+}
+
+// ----------------- Bootstrap Fields --------------------//
+
+input[type='password']::-ms-reveal,
+input[type='password']::-ms-clear,
+input[type='password']::-webkit-credentials-auto-fill-button,
+input[type='password']::-webkit-textfield-decoration-container,
+input[type='password']::-webkit-clear-button {
+  display: none !important;
+  appearance: none;
+}
+
+input[type='email'],
+input[type='password'],
+input[type='text'],
+input[type='number'] {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 40px;
+  border: 1px solid $beige-dark-color;
+  font-size: 14px;
+  font-family: $font-secondary;
+  font-weight: $font-regular;
+  line-height: 140%;
+  color: $black-color;
+  background: transparent;
+
+  &::placeholder {
+    color: $gray-textdisable-color;
+    font-size: 14px;
+    font-family: $font-secondary;
+    font-weight: $font-regular;
+    line-height: 140%;
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid $dark-gray-color;
+    box-shadow: none;
+    background-color: unset;
+  }
+
+  &.error {
+    border: 1px solid $red-color;
+    background: $light-red-color;
+  }
+
+  &:disabled {
+    border: 1px solid $field-dsiable-color;
+    background: $field-dsiable-color;
+  }
+
+  &.ng-touched {
+    border: 1px solid $red-color;
+  }
+
+  &.ng-valid {
+    border: 1px solid $beige-dark-color;
+  }
+}
+
+.textarea {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 12px;
+  border: 1px solid $beige-dark-color;
+  font-size: 14px;
+  font-family: $font-secondary;
+  font-weight: $font-regular;
+  line-height: 140%;
+  color: $black-color;
+  background: transparent;
+  resize: none;
+
+  &::placeholder {
+    color: $gray-textdisable-color;
+    font-size: 14px;
+    font-family: $font-secondary;
+    font-weight: $font-regular;
+    line-height: 140%;
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid $dark-gray-color;
+    box-shadow: none;
+    background-color: unset;
+  }
+}
+
+// ----------------- Material Select Field --------------------//
+
+.mat-mdc-form-field {
+  width: 100%;
+
+  .mat-mdc-text-field-wrapper {
+    border-radius: 40px;
+    border: 1px solid $beige-dark-color;
+    padding: 14px 20px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background: transparent;
+
+    .mat-mdc-form-field-flex {
+      align-items: center;
+      height: 100%;
+
+      .mdc-notched-outline {
+        display: none;
+      }
+
+      .mat-mdc-form-field-infix {
+        padding: 0;
+        min-height: auto;
+
+        .mat-mdc-select {
+          .mat-mdc-select-placeholder {
+            font-family: $font-secondary;
+            font-weight: $font-regular;
+            font-size: 14px;
+            line-height: 140%;
+            letter-spacing: 0;
+            color: $gray-textdisable-color;
+          }
+
+          .mat-mdc-select-trigger {
+            .mat-mdc-select-arrow-wrapper {
+              .mat-mdc-select-arrow {
+                background-image: url('/assets/images/input/arrow-down-icon.svg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                width: 20px;
+                height: 20px;
+                transition: transform 0.3s ease;
+
+                svg {
+                  display: none;
+                }
+              }
+            }
+          }
+
+          .mat-mdc-select-trigger {
+            .mat-mdc-select-value {
+              .mat-mdc-select-value-text {
+                .mat-mdc-select-min-line {
+                  font-family: $font-secondary;
+                  font-weight: $font-regular;
+                  font-size: 14px;
+                  line-height: 140%;
+                  letter-spacing: 0;
+                  color: $dark-black-color;
+                }
+              }
+            }
+          }
+
+          &[aria-expanded='true'] {
+            .mat-mdc-select-arrow-wrapper {
+              .mat-mdc-select-arrow {
+                transform: rotate(180deg);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .mat-mdc-form-field-subscript-wrapper {
+    display: none;
+  }
+
+  &.mat-form-field-invalid {
+    .mat-mdc-form-field-subscript-wrapper {
+      display: flex;
+
+      &::before {
+        display: none;
+      }
+
+      .mat-mdc-form-field-error-wrapper {
+        padding: 0;
+        .mat-mdc-form-field-error {
+          color: $red-color;
+          margin-top: 6px;
+          &::before {
+            display: none;
+          }
+        }
+      }
+    }
+    .mdc-text-field--invalid {
+      border: 1px solid $red-color;
+    }
+  }
+  &.mat-focused {
+    .mat-mdc-text-field-wrapper {
+      border: 1px solid $dark-gray-color;
+    }
+  }
+}
+
+// ----------------- Material Select-field-options --------------------//
+
+.cdk-overlay-pane {
+  .mat-mdc-select-panel {
+    border-radius: 16px !important;
+    border: 1px solid $dark-gray-color;
+    background: $forms-bg-color;
+    box-shadow: none;
+    margin-top: 4px;
+    padding: 0;
+
+    .custom-option {
+      padding: 8px 16px 8px 20px;
+
+      &.mat-mdc-option-active {
+        background-color: transparent;
+      }
+
+      .mdc-list-item__primary-text {
+        font-family: $font-secondary;
+        font-weight: $font-regular;
+        font-size: 14px;
+        line-height: 140%;
+        letter-spacing: 0;
+        color: $dark-black-color;
+      }
+
+      &.mdc-list-item--selected {
+        &:not(.mdc-list-item--disabled) {
+          &:not(.mat-mdc-option-multiple) {
+            background-color: $beige-light;
+            &:first-of-type {
+              border-top-left-radius: 10px;
+              border-top-right-radius: 10px;
+            }
+            &:last-of-type {
+              border-bottom-left-radius: 10px;
+              border-bottom-right-radius: 10px;
+            }
+          }
+        }
+      }
+
+      &:hover {
+        &:not(.mdc-list-item--disabled) {
+          background-color: $beige-light;
+          &:first-of-type {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+          }
+          &:last-of-type {
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+          }
+        }
+      }
+
+      &.mdc-list-item--selected {
+        &:not(.mdc-list-item--disabled) {
+          &:not(.mat-mdc-option-multiple) {
+            .mdc-list-item__primary-text {
+              color: $dark-black-color;
+            }
+          }
+        }
+      }
+      .mat-pseudo-checkbox {
+        background-image: url('/assets/images/input/tick-icon.svg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 20px;
+        height: 20px;
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// ----------------- Material-Text-Input-fields --------------------//
+
+.mat-mdc-form-field {
+  .mat-mdc-text-field-wrapper {
+    .mat-mdc-form-field-flex {
+      .mat-mdc-form-field-infix {
+        .mat-mdc-input-element {
+          font-family: $font-secondary;
+          font-weight: $font-regular;
+          font-size: 14px;
+          line-height: 140%;
+          letter-spacing: 0;
+          color: $dark-black-color;
+
+          &::placeholder {
+            font-family: $font-secondary;
+            font-weight: $font-regular;
+            font-size: 14px;
+            line-height: 140%;
+            letter-spacing: 0;
+            color: $gray-textdisable-color;
+          }
+
+          &[type='email'] {
+            padding: 0;
+            border-radius: 0;
+          }
+          &[type='number'] {
+            padding: 0;
+            border-radius: 0;
+          }
+        }
+      }
+    }
+
+    &.mdc-text-field--outlined {
+      &:not(.mdc-text-field--disabled) {
+        .mdc-text-field__input {
+          caret-color: $dark-black-color;
+        }
+      }
+    }
+  }
+}
+
+// ----------------- Material Checkbox Select-field-options --------------------//
+
+.mat-mdc-select-panel {
+  .checkbox-select-option {
+    padding: 10px 16px 10px 20px;
+
+    &.mat-mdc-option-active {
+      &.mdc-list-item {
+        background-color: transparent;
+      }
+    }
+
+    .mdc-list-item__primary-text {
+      font-family: $font-secondary;
+      font-weight: $font-regular;
+      font-size: 14px;
+      line-height: 140%;
+      letter-spacing: 0;
+      color: $dark-black-color;
+    }
+
+    &.mdc-list-item--selected {
+      &:not(.mdc-list-item--disabled) {
+        &:not(.mat-mdc-option-multiple) {
+          background-color: $beige-light;
+          &:first-of-type {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+          }
+          &:last-of-type {
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      &:not(.mdc-list-item--disabled) {
+        background-color: $beige-light;
+        &:first-of-type {
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+        }
+        &:last-of-type {
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+        }
+      }
+    }
+
+    &.mdc-list-item--selected {
+      &:not(.mdc-list-item--disabled) {
+        &:not(.mat-mdc-option-multiple) {
+          .mdc-list-item__primary-text {
+            color: $dark-black-color;
+          }
+        }
+      }
+    }
+    .mat-pseudo-checkbox {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      &.mat-pseudo-checkbox-full {
+        margin-right: 12px;
+        border: 1px solid $gray-active-color;
+      }
+      &.mat-pseudo-checkbox-checked {
+        background-color: $primary-color;
+        border: 1.2px solid $primary-color;
+      }
+    }
+  }
+}
+
+// ----------------- Rich Text Editor Field --------------------//
+
+quill-editor {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid $beige-dark-color;
+
+  .ql-toolbar {
+    background-color: $beige-light;
+    border-radius: 12px 12px 0 0;
+
+    &.ql-snow {
+      padding: 8px 12px;
+      border: none;
+
+      .ql-stroke {
+        stroke: $dark-gray-color;
+      }
+
+      .ql-fill {
+        fill: $dark-gray-color;
+      }
+
+      // 👇 NESTED HOVER STATES FOR BUTTONS, PICKERS, ETC.
+      button,
+      .ql-picker-label,
+      .ql-picker-item {
+        &:hover,
+        &:focus,
+        &.ql-active {
+          color: $dark-black-color;
+
+          .ql-stroke,
+          .ql-stroke-miter,
+          .ql-fill,
+          .ql-stroke.ql-fill {
+            stroke: $dark-black-color;
+          }
+        }
+      }
+    }
+  }
+
+  .ql-container {
+    min-height: 142px;
+    max-height: 142px;
+    overflow-y: auto;
+    border-radius: 0 0 12px 12px;
+    font-family: $font-secondary;
+    font-size: 14px;
+
+    &.ql-snow {
+      border: none;
+    }
+
+    .ql-editor {
+      &::before {
+        font-style: normal;
+        font-family: $font-secondary;
+        font-weight: $font-regular;
+        font-size: 14px;
+        line-height: 140%;
+        letter-spacing: 0;
+        color: $dark-gray-color;
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+// ----------------- Date Picker field --------------------//
+
+.mat-datepicker-toggle {
+  margin-right: 16px;
+  display: flex;
+  .mdc-icon-button {
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    .mat-mdc-button-persistent-ripple {
+      &::before {
+        background-color: unset;
+      }
+    }
+    .mat-icon {
+      height: 20px;
+      width: 20px;
+      display: flex;
+      align-items: center;
+      .calendar-icon {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    .mat-focus-indicator {
+      display: none;
+    }
+    .mat-mdc-button-touch-target {
+      display: none;
+    }
+    .mat-ripple {
+      width: 100%;
+    }
+  }
+}
+
+.mat-datepicker-popup {
+  .mat-datepicker-content {
+    background-color: $white-color;
+    border-radius: 12px;
+    border: 1px solid $beige-color;
+    box-shadow:
+      0px 5px 17px 0px $datepicker-box-shadow,
+      0px 5px 17px 0px $datepicker-box-shadow2;
+    margin: 4px 0;
+
+    .mat-datepicker-content-container {
+      .mat-calendar {
+        .mat-calendar-header {
+          padding: 14px 16px 10px 22px;
+
+          .mat-calendar-controls {
+            margin: 0;
+
+            .mat-calendar-period-button {
+              margin: 0;
+              padding: 0;
+              .mdc-button__label {
+                font-family: $font-secondary;
+                font-weight: $font-medium;
+                font-size: 16px;
+                line-height: 150%;
+                letter-spacing: 0;
+                color: $primary-color;
+                display: flex;
+                align-items: center;
+                gap: 2px;
+                &::after {
+                  content: '';
+                  background-image: url('/assets/images/input/green-arrow-down.svg');
+                  background-repeat: no-repeat;
+                  background-size: contain;
+                  width: 16px;
+                  height: 16px;
+                  display: inline-block;
+                }
+                .mat-calendar-arrow {
+                  display: none;
+                }
+              }
+              .mat-mdc-button-persistent-ripple {
+                &::before {
+                  background-color: unset;
+                }
+              }
+              .mat-focus-indicator {
+                display: none;
+              }
+              .mat-mdc-button-touch-target {
+                display: none;
+              }
+              .mat-ripple {
+                display: none;
+              }
+            }
+            .mat-calendar-previous-button {
+              &:not(.mat-mdc-button-disabled) {
+                color: $primary-color;
+              }
+            }
+          }
+        }
+        .mat-calendar-content {
+          padding: 0px 16px 12px 16px;
+          .mat-calendar-table {
+            .mat-calendar-table-header {
+              tr {
+                th {
+                  span {
+                    font-family: $font-secondary;
+                    font-weight: $font-regular;
+                    font-size: 16px;
+                    line-height: 150%;
+                    letter-spacing: 0;
+                    color: $dark-gray-color;
+                  }
+                }
+              }
+            }
+            .mat-calendar-body {
+              .mat-calendar-body-label {
+                font-family: $font-secondary;
+                font-weight: $font-medium;
+                font-size: 16px;
+                letter-spacing: 0;
+                color: $primary-color;
+              }
+              .mat-calendar-body-cell-container {
+                .mat-calendar-body-cell {
+                  font-family: $font-secondary;
+                  font-weight: $font-regular;
+                  font-size: 14px;
+                  line-height: 140%;
+                  letter-spacing: 0;
+                  color: $dark-black-color;
+                  .mat-calendar-body-today:not(.mat-calendar-body-selected):not(
+                      .mat-calendar-body-comparison-identical
+                    ) {
+                    border-color: $primary-color;
+                    background-color: $beige-light;
+                    color: $primary-color;
+                  }
+                  .mat-calendar-body-selected {
+                    color: $white-color;
+                    background-color: $primary-color;
+                    border-color: $primary-color;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

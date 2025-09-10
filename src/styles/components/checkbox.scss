@@ -1,0 +1,96 @@
+/*<------------------- Checkbox Scss -------------------->*/
+@use '../../styles/abstracts/variables' as *;
+
+.mat-mdc-checkbox {
+  .mdc-form-field {
+    .mdc-checkbox {
+      width: 20px;
+      height: 20px;
+      padding: 0;
+
+      &:hover {
+        & > .mdc-checkbox__ripple {
+          opacity: 0;
+        }
+      }
+
+      .mat-mdc-checkbox-touch-target {
+        width: 20px;
+        height: 20px;
+      }
+
+      .mdc-checkbox__native-control {
+        width: 20px;
+        height: 20px;
+        &:focus:focus:not(:checked) ~ .mdc-checkbox__background,
+        :focus:focus:not(:indeterminate) ~ .mdc-checkbox__background {
+          border-color: #bec0be;
+          background-color: transparent;
+        }
+        &:focus + .mdc-checkbox__ripple {
+          background-color: transparent;
+        }
+      }
+
+      .mdc-checkbox__ripple {
+        width: 20px;
+        height: 20px;
+      }
+
+      .mdc-checkbox__background {
+        border: 1.2px solid $gray-active-color;
+        border-radius: 4px;
+        width: 20px;
+        height: 20px;
+        top: 0;
+        left: 0;
+        background: transparent;
+
+        svg {
+          display: none;
+        }
+
+        &::after {
+          content: url('/assets/images/table/checkbox-tick.svg');
+          position: absolute;
+          top: 1px;
+          right: 0;
+          bottom: 0;
+          left: 1px;
+          width: 100%;
+          opacity: 0;
+          transition: opacity 180ms cubic-bezier(0.4, 0, 0.6, 1);
+        }
+      }
+
+      .mdc-checkbox__native-control {
+        &:enabled {
+          &:checked ~ .mdc-checkbox__background {
+            border: 1.2px solid $primary-color;
+            background: $primary-color;
+
+            &::after {
+              transition:
+                opacity 180ms cubic-bezier(0, 0, 0.2, 1),
+                transform 180ms cubic-bezier(0, 0, 0.2, 1);
+              opacity: 1;
+            }
+          }
+        }
+      }
+      &:active > .mdc-checkbox__native-control + .mdc-checkbox__ripple {
+        background: transparent;
+        opacity: 1;
+      }
+    }
+    .mdc-label {
+      font-family: $font-secondary;
+      font-weight: $font-regular;
+      font-size: 14px;
+      line-height: 140%;
+      letter-spacing: 0;
+      color: $blackish-color;
+      padding-left: 8px;
+    }
+  }
+}

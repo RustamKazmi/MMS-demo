@@ -1,0 +1,14 @@
+/*<------------------- Header Scss -------------------->*/
+
+@use '../../styles/abstracts/variables' as *;
+
+.header-section {
+  .header-title {
+    color: $dark-black-color;
+    text-transform: uppercase;
+  }
+
+  .header-icons-block {
+    gap: 20px;
+  }
+}

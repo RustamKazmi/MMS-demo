@@ -1,0 +1,42 @@
+// custom-bootstrap.scss
+@use '../../styles/abstracts/variables' as *;
+// Override Bootstrap's container max widths
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1340px, // this will override @media (min-width: 1400px)
+);
+
+.btn-primary,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:focus-visible,
+.btn-primary:checked,
+.btn-primary.show,
+.btn-primary.active,
+.btn-check:checked + .btn-primary {
+  background-color: $primary-color;
+  border-color: $primary-color;
+  color: $white-color;
+  box-shadow: none;
+  outline: none;
+}
+
+.btn-check:checked + .btn,
+:not(.btn-check) + .btn:active,
+.btn:first-child:active,
+.btn.active,
+.btn.show {
+  background-color: $primary-color !important;
+  border-color: $primary-color !important;
+  color: $white-color;
+  box-shadow: none;
+  outline: none;
+}
+
+:not(.btn-check) + .btn:active {
+  background-color: $btn-disable-bg-color !important;
+  border: 1px solid $btn-disable-bg-color !important;
+}

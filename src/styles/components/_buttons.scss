@@ -1,0 +1,129 @@
+/*<------------------- Buttons Scss -------------------->*/
+@use '../../styles/abstracts/variables' as *;
+.btn {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 40px;
+  background: $primary-color;
+  display: inline-block;
+  text-align: center;
+  font-family: $font-secondary;
+  font-weight: $font-regular;
+  color: $white-color;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: 0;
+  padding: 16px 40px;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+
+  // add ::after as a static hidden icon (we animate it in)
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 75px;
+    height: 80px;
+    background: url('/assets/images/button/button-hover.svg') no-repeat center
+      center;
+    background-size: contain;
+    opacity: 0;
+    transform: translate(20px, -20px);
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease;
+    pointer-events: none;
+  }
+
+  &:hover {
+    background: $primary-color;
+    color: $white-color;
+
+    &::after {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+
+  &:active {
+    background-color: $primary-color;
+    color: $white-color;
+    outline: none;
+    box-shadow: none;
+  }
+  &:focus-visible {
+    background-color: $primary-color;
+    color: $white-color;
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.btn-secondary {
+  width: 100%;
+  border-radius: 40px;
+  background: $primary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-family: $font-secondary;
+  font-weight: $font-regular;
+  color: $primary-color;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0;
+  padding: 10px 20px;
+  background: transparent;
+  outline: none;
+  border: 1px solid $primary-color;
+  width: 118px;
+  height: 44px;
+}
+
+.btn-primary {
+  width: 100%;
+  border-radius: 40px;
+  background: $primary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-family: $font-secondary;
+  font-weight: $font-regular;
+  color: $white-color;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0;
+  padding: 10px 20px;
+  outline: none;
+  border: 1px solid $primary-color;
+
+  &:active {
+    background-color: $primary-color;
+    color: $white-color;
+    outline: none;
+  }
+  &:focus-visible {
+    background-color: $primary-color;
+    color: $white-color;
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.btn:disabled {
+  background-color: $btn-disable-bg-color;
+  color: $gray-textdisable-color;
+  border: 1px solid $btn-disable-bg-color;
+  cursor: not-allowed;
+  pointer-events: all;
+  &:active {
+    background-color: $btn-disable-bg-color !important;
+    color: $gray-textdisable-color;
+    border: 1px solid $btn-disable-bg-color !important;
+  }
+}
